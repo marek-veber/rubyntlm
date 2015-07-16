@@ -10,6 +10,7 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: ruby-ntlm-solnet
 Architecture: all
+Multi-Arch: foreign
 Provides: ruby-ntlm
 Conflicts: ruby-ntlm
 Depends: ${shlibs:Depends}, ${misc:Depends}

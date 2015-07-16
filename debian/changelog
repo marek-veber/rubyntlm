@@ -1,3 +1,9 @@
+ruby-ntlm-solnet (0.4.0-solnet4) unstable; urgency=medium
+
+  * fix přidání Net::Ntlm::Message.Type*.debug
+
+ -- Marek Veber <Marek.Veber@solnet.cz>  Thu, 16 Jul 2015 23:59:33 +0200
+
 ruby-ntlm-solnet (0.4.0-solnet3) unstable; urgency=medium
 
   * fixes - to enable auth to NTLM1/2 for alfresco/openkm webdav

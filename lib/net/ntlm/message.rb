@@ -123,6 +123,20 @@ module NTLM
         cur += a[1].data_size
       }
     end
+    def debug
+      ret = []
+      self.class.names.each do |k|
+          v = send(k)
+          ret << "#{k}=#{v.inspect}"
+      end
+      ret << "flags=" + Net::NTLM::FLAG_KEYS.select{|x| has_flag?(x)}.join(',')
+      ret << "enc=" + encode64
+      security_buffers.inject(head_size){|cur, a|
+        ret << sprintf("%4i : %s (%i)", a[1].offset, a[0], a[1].data_size)
+        cur += a[1].data_size
+      }
+      return ret.join("\n")
+    end
 
     def data_edge
       security_buffers.map{ |n, f| f.active ? f.offset : size}.min

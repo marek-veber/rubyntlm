@@ -81,6 +81,10 @@ module NTLM
       self[:flag].value  |= FLAGS[flag]
     end
 
+    def unset_flag(flag)
+      self[:flag].value  &= ~FLAGS[flag]
+    end
+
     def dump_flags
       FLAG_KEYS.each{ |k| print(k, "=", has_flag?(k), "\n") }
     end
@@ -115,7 +119,7 @@ module NTLM
 
     def deflag
       security_buffers.inject(head_size){|cur, a|
-        a[1].offset = cur
+        a[1].offset = (a[1].data_size > 0) ? cur : 0
         cur += a[1].data_size
       }
     end

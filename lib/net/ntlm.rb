@@ -103,6 +103,9 @@ module Net
         dec = OpenSSL::Cipher::Cipher.new("des-cbc")
         dec.padding = 0
         keys.map {|k|
+          while k.size < 8
+              k += "\000"
+          end
           dec.key = k
           dec.encrypt.update(plain) + dec.final
         }

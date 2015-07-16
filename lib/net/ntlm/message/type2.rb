@@ -24,6 +24,11 @@ module Net
         # @note An empty :domain option authenticates to the local machine.
         # @note The :use_default_target has precedence over the :domain option
         def response(arg, opt = {})
+          if opt[:ntlmv2]
+              set_flag(:UNICODE)
+          else
+              unset_flag(:UNICODE)
+          end
           usr = arg[:user]
           pwd = arg[:password]
           domain = arg[:domain] ? arg[:domain].upcase : ""

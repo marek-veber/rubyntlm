@@ -8,13 +8,13 @@ module NTLM
       # Decode a UTF16 string to a ASCII string
       # @param [String] str The string to convert
       def self.decode_utf16le(str)
-        Kconv.kconv(swap16(str), Kconv::ASCII, Kconv::UTF16)
+        Kconv.kconv(swap16(str), Kconv::UTF8, Kconv::UTF16)
       end
 
       # Encodes a ASCII string to a UTF16 string
       # @param [String] str The string to convert
       def self.encode_utf16le(str)
-        swap16(Kconv.kconv(str, Kconv::UTF16, Kconv::ASCII))
+        swap16(Kconv.kconv(str, Kconv::UTF16, Kconv::UTF8))
       end
 
       # Taggle the strings endianness between big/little and little/big

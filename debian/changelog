@@ -1,3 +1,11 @@
+ruby-ntlm-solnet (0.4.0-solnet5) unstable; urgency=medium
+
+  * fix - flags in response to Type2 -> Type3 according opt[:ntlmv2]
+    - set_flag(:NTLM2_KEY)   ... for NTLM2
+    - unset_flag(:NTLM2_KEY) ... for NTLM1
+
+ -- Marek Veber <Marek.Veber@solnet.cz>  Tue, 28 Jul 2015 19:02:56 +0200
+
 ruby-ntlm-solnet (0.4.0-solnet4) unstable; urgency=medium
 
   * fix přidání Net::Ntlm::Message.Type*.debug

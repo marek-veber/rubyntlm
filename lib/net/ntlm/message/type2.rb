@@ -26,8 +26,10 @@ module Net
         def response(arg, opt = {})
           if opt[:ntlmv2]
               set_flag(:UNICODE)
+              set_flag(:NTLM2_KEY)
           else
               unset_flag(:UNICODE)
+              unset_flag(:NTLM2_KEY)
           end
           usr = arg[:user]
           pwd = arg[:password]
